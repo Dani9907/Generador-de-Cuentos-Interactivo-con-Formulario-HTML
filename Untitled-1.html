@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generador de Cuentos</title>
+</head>
+<body>
+    <h1>Generador de Cuentos</h1>
+    <form id="cuento-form">
+        <label for="nombres-apellidos">Nombres y Apellidos:</label>
+        <input type="text" id="nombres-apellidos" required><br><br>
+
+        <label for="apodo">Apodo:</label>
+        <input type="text" id="apodo" required><br><br>
+
+        <label for="color-cabello">Color de Cabello:</label>
+        <input type="text" id="color-cabello" required><br><br>
+
+        <label for="color-ojos">Color de Ojos:</label>
+        <input type="text" id="color-ojos" required><br><br>
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" required><br><br>
+
+        <label for="hobby">Hobby (Solo uno):</label>
+        <input type="text" id="hobby" required><br><br>
+
+        <button type="button" id="generar-cuento">Generar Cuento</button>
+    </form>
+
+    <div id="cuento-result" style="display: none;">
+        <h2>Tu Cuento:</h2>
+        <p id="cuento-text"></p>
+    </div>
+
+    <script>
+        document.getElementById("generar-cuento").addEventListener("click", function () {
+            const nombresApellidos = document.getElementById("nombres-apellidos").value;
+            const apodo = document.getElementById("apodo").value;
+            const colorCabello = document.getElementById("color-cabello").value;
+            const colorOjos = document.getElementById("color-ojos").value;
+            const edad = document.getElementById("edad").value;
+            const hobby = document.getElementById("hobby").value;
+
+            if (!nombresApellidos || !apodo || !colorCabello || !colorOjos || !edad || !hobby) {
+                alert("Todos los campos son obligatorios.");
+                return;
+            }
+
+            const cuento = `Había una vez una persona llamada ${nombresApellidos}, también conocida como ${apodo}. Tenía el cabello de color ${colorCabello} y ojos de color ${colorOjos}. Con ${edad} años de edad, su pasatiempo favorito era ${hobby}.`;
+
+            document.getElementById("cuento-text").textContent = cuento;
+            document.getElementById("cuento-result").style.display = "block";
+        });
+    </script>
+</body>
+</html>
